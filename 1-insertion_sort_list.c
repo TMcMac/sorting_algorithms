@@ -10,27 +10,27 @@ listint_t *swap(listint_t *unsorted_head, listint_t *min_node);
  **/
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *unsorted_head, *mover, *min_node;
+	listint_t *unsorted_head, *mover, *min_node;
 
-    if (list == NULL || (*list) == NULL)
-        return;
-    
-    unsorted_head = (*list);
-    mover = (*list);
-    min_node = (*list);
-    while (unsorted_head->next != NULL)
-    {
-        while (mover != NULL)
-        {
-            mover = mover->next;
-            if (mover->n < min_node->n)
-                min_node = mover;
-        }
-        unsorted_head = swap(unsorted_head, min_node);
-        min_node = unsorted_head;
-        mover = unsorted_head;
-        print_list(*list);
-    }
+	if (list == NULL || (*list) == NULL)
+		return;
+	
+	unsorted_head = (*list);
+	mover = (*list);
+	min_node = (*list);
+	while (unsorted_head->next != NULL)
+	{
+		while (mover != NULL)
+		{
+			mover = mover->next;
+			if (mover->n < min_node->n)
+				min_node = mover;
+		}
+		unsorted_head = swap(unsorted_head, min_node);
+		min_node = unsorted_head;
+		mover = unsorted_head;
+		print_list(*list);
+	}
 }
 
 /**
@@ -41,20 +41,20 @@ void insertion_sort_list(listint_t **list)
  * */
 listint_t *swap(listint_t *unsorted_head, listint_t *min_node)
 {
-    listint_t *temp_head = unsorted_head;
+	listint_t *temp_head = unsorted_head;
 
-    unsorted_head->next = min_node->next;
-    unsorted_head->prev = min_node->prev;
-    if (min_node->next != NULL)
-        min_node->next->prev = unsorted_head;
-    if (min_node->prev != NULL)
-        min_node->prev->next = unsorted_head;
-    min_node->next = temp_head->next;
-    min_node->prev = temp_head->prev;
-    if (temp_head->prev != NULL)
-        temp_head->prev->next = min_node;
-    if (temp_head->next != NULL)
-        temp_head->next->prev = min_node;
+	unsorted_head->next = min_node->next;
+	unsorted_head->prev = min_node->prev;
+	if (min_node->next != NULL)
+		min_node->next->prev = unsorted_head;
+	if (min_node->prev != NULL)
+		min_node->prev->next = unsorted_head;
+	min_node->next = temp_head->next;
+	min_node->prev = temp_head->prev;
+	if (temp_head->prev != NULL)
+		temp_head->prev->next = min_node;
+	if (temp_head->next != NULL)
+		temp_head->next->prev = min_node;
 
-    return (min_node->next);
+	return (min_node->next);
 }
