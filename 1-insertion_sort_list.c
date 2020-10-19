@@ -14,7 +14,7 @@ void insertion_sort_list(listint_t **list)
 
 	if (list == NULL || (*list) == NULL)
 		return;
-	
+
 	unsorted_head = (*list);
 	mover = (*list);
 	min_node = (*list);
@@ -35,10 +35,10 @@ void insertion_sort_list(listint_t **list)
 
 /**
  * swap - a funtion to swap two nodes in a doubly linked list
- * @sorted_head: the head of the sorted portion
- * @node: The node to be swapped to head
+ * @unsorted_head: the head of the sorted portion
+ * @min_node: The node to be swapped to head
  * Return: The head of the sorted portion
- * */
+ **/
 listint_t *swap(listint_t *unsorted_head, listint_t *min_node)
 {
 	listint_t *temp_head = unsorted_head;
