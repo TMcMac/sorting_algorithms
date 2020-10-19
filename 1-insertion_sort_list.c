@@ -21,7 +21,7 @@ void insertion_sort_list(listint_t **list)
 	while (unsorted_head->next != NULL)
 	{
 		printf("Top of the outer While Loop\n");
-		while (mover != NULL)
+		while (mover->next != NULL)
 		{
 			printf("Top of the inner While Loop\n");
 			printf("Mover N = %d\n", mover->n);
