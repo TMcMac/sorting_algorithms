@@ -20,8 +20,11 @@ void insertion_sort_list(listint_t **list)
 	min_node = (*list);
 	while (unsorted_head->next != NULL)
 	{
+		printf("Top of the outer While Loop\n");
 		while (mover != NULL)
 		{
+			printf("Top of the inner While Loop\n");
+			printf("Mover N = %d\n", mover->n);
 			mover = mover->next;
 			if (mover->n < min_node->n)
 				min_node = mover;
@@ -43,6 +46,7 @@ listint_t *swap(listint_t *unsorted_head, listint_t *min_node)
 {
 	listint_t *temp_head = unsorted_head;
 
+	printf("Made it into Swap Function\n");
 	unsorted_head->next = min_node->next;
 	unsorted_head->prev = min_node->prev;
 	if (min_node->next != NULL)
