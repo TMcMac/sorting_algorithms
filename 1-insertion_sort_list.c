@@ -33,7 +33,7 @@ void insertion_sort_list(listint_t **list)
  * @list: the head of the sorted portion
  * @unsorted_node: The node to be swapped into propper position
  * Return: The head of the sorted portion
- * */
+ **/
 void swap(listint_t **list, listint_t *unsorted_node)
 {
 	listint_t *check_prev = unsorted_node->prev;
@@ -73,5 +73,4 @@ void swap(listint_t **list, listint_t *unsorted_node)
 			print_list((*list));
 		}
 	}
-	return;
 }
