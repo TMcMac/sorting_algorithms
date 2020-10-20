@@ -52,10 +52,10 @@ void swap(listint_t **list, listint_t *unsorted_node)
 		unsorted_node->next = check;
 		if ((*list)->prev)
 		{
-		    (*list) = unsorted_node;
-		    print_list((*list));
-		    return;
+			(*list) = unsorted_node;
+			print_list((*list));
+			return;
 		}
-       		print_list((*list));
+	   	print_list((*list));
 	}
 }
