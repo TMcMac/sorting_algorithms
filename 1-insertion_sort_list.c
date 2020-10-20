@@ -43,19 +43,19 @@ void swap(listint_t **list, listint_t *unsorted_node)
 		check = unsorted_node->prev;
 
 		if (check->prev)
-		  check->prev->next = unsorted_node;
+			check->prev->next = unsorted_node;
 		if (unsorted_node->next)
-		  unsorted_node->next->prev = check;
+			unsorted_node->next->prev = check;
 		unsorted_node->prev = check->prev;
 		check->next = unsorted_node->next;
 		check->prev = unsorted_node;
 		unsorted_node->next = check;
 		if ((*list)->prev)
-		  {
+		{
 		    (*list) = unsorted_node;
 		    print_list((*list));
 		    return;
-		  }
+		}
        		print_list((*list));
 	}
 }
