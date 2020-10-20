@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void swap(listint_t *list, listint_t *mover);
+void swap(listint_t **list, listint_t *mover);
 
 
 /**
@@ -22,7 +22,7 @@ void insertion_sort_list(listint_t **list)
 		trailer = mover->prev;
 		if (trailer->n > mover->n)
 		{
-			swap((*list), mover);
+			swap(list, mover);
 			mover = trailer;
 		}
 	}
@@ -34,12 +34,13 @@ void insertion_sort_list(listint_t **list)
  * @unsorted_node: The node to be swapped into propper position
  * Return: The head of the sorted portion
  * */
-void swap(listint_t *list, listint_t *unsorted_node)
+void swap(listint_t **list, listint_t *unsorted_node)
 {
 	listint_t *check_prev = unsorted_node->prev;
 
 	while (unsorted_node->n < check_prev->n)
 	{
+	  check_prev = unsorted_node->prev;
 		if (check_prev->prev != NULL && unsorted_node->next != NULL)
 		{
 			check_prev->next = unsorted_node->next;
@@ -51,7 +52,7 @@ void swap(listint_t *list, listint_t *unsorted_node)
 			check_prev = unsorted_node->prev;
 			print_list((*list));
 		}
-		else if (check_prev->prev != NULL)
+		else if (check_prev->prev == NULL)
 		{
 			check_prev->next = unsorted_node->next;
 			unsorted_node->next->prev = check_prev;
