@@ -36,41 +36,22 @@ void insertion_sort_list(listint_t **list)
  **/
 void swap(listint_t **list, listint_t *unsorted_node)
 {
-	listint_t *check_prev = unsorted_node->prev;
+	listint_t *check = unsorted_node->prev;
 
-	while (unsorted_node->n < check_prev->n)
+	while (unsorted_node->n < check->n)
 	{
-		check_prev = unsorted_node->prev;
-		if (check_prev->prev != NULL && unsorted_node->next != NULL)
-		{
-			check_prev->next = unsorted_node->next;
-			unsorted_node->next->prev = check_prev;
-			check_prev->prev->next = unsorted_node;
-			unsorted_node->prev = check_prev->prev;
-			check_prev->prev = unsorted_node;
-			unsorted_node->next = check_prev;
-			check_prev = unsorted_node->prev;
-			print_list((*list));
-		}
-		else if (check_prev->prev == NULL)
-		{
-			check_prev->next = unsorted_node->next;
-			unsorted_node->next->prev = check_prev;
-			check_prev->prev = unsorted_node;
-			unsorted_node->next = check_prev;
-			unsorted_node->prev = NULL;
-			(*list) = unsorted_node;
-			print_list((*list));
-			return;
-		}
-		else if (unsorted_node->next == NULL)
-		{
-			check_prev->prev->next = unsorted_node;
-			unsorted_node->prev = check_prev->prev;
-			unsorted_node->next = check_prev;
-			check_prev->prev = unsorted_node;
-			check_prev->next = NULL;
-			print_list((*list));
-		}
+		check = unsorted_node->prev;
+
+		if (check->prev)
+		  check->prev->next = unsorted_node;
+		if (unsorted_node->next)
+		  unsorted_node->next->prev = check;
+		unsorted_node->prev = check->prev;
+		check->next = unsorted_node->next;
+		check->prev = unsorted_node;
+		unsorted_node->next = check;
+		while ((*list)->prev)
+		  (*list) = (*list)->prev;
+       		print_list((*list));
 	}
 }
