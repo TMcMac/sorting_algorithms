@@ -1,12 +1,11 @@
 #include "sort.h"
 
-
 void swap_node(listint_t **list, listint_t *node1, listint_t *node2);
+
 /**
- * 
- * 
- * 
- * 
+ * cocktail_sort_list - a function that will sort a dbl linked list
+ * by shaking up the max value node and then shaking down the min val
+ * @list: a dbl linked list
  **/
 void cocktail_sort_list(listint_t **list)
 {
@@ -37,9 +36,9 @@ void cocktail_sort_list(listint_t **list)
 			else
 				mover = mover->prev;
 		}
-        start = mover;
-        if (start == end || start->prev == end || start->next == end)
-            not_sorted = 0;
+		start = mover;
+		if (start == end || start->prev == end || start->next == end)
+			not_sorted = 0;
 	}
 }
 
@@ -63,7 +62,7 @@ void swap_node(listint_t **list, listint_t *node1, listint_t *node2)
 		node2->next->prev = node1;
 	node1->next = node2->next;
 	node2->next = node1;
-    if (node2->prev == NULL)
-        (*list) = node2;
-    print_list((*list));
+	if (node2->prev == NULL)
+		(*list) = node2;
+	print_list((*list));
 }
