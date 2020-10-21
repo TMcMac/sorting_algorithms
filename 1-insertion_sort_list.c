@@ -40,8 +40,6 @@ void swap(listint_t **list, listint_t *unsorted_node)
 
 	while (unsorted_node->n < check->n)
 	{
-		check = unsorted_node->prev;
-
 		if (check->prev)
 			check->prev->next = unsorted_node;
 		if (unsorted_node->next)
@@ -56,6 +54,7 @@ void swap(listint_t **list, listint_t *unsorted_node)
 			print_list((*list));
 			return;
 		}
-	   	print_list((*list));
+		print_list((*list));
+		check = unsorted_node->prev;
 	}
 }
