@@ -1,5 +1,7 @@
 #include "sort.h"
 
+
+void swap_node(listint_t **list, listint_t *node1, listint_t *node2);
 /**
  * 
  * 
@@ -23,7 +25,7 @@ void cocktail_sort_list(listint_t **list)
 		while (mover->next != end)
 		{
 			if (mover->n > mover->next->n)
-				swap(list, mover, mover->next);
+				swap_node(list, mover, mover->next);
 			else
 				mover = mover->next;
 		}
@@ -31,7 +33,7 @@ void cocktail_sort_list(listint_t **list)
 		while (mover->next != start)
 		{
 			if (mover->n < mover->prev->n)
-				swap(list, mover->prev, mover);
+				swap_node(list, mover->prev, mover);
 			else
 				mover = mover->prev;
 		}
