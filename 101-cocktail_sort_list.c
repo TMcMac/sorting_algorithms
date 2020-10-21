@@ -19,7 +19,7 @@ void cocktail_sort_list(listint_t **list)
 	sorted = 0;
 	mover = (*list);
 	end = NULL;
-	start = NULL;
+	star = NULL;
 	while (!sorted)
 	{
 		while (mover->next != end)
@@ -30,7 +30,7 @@ void cocktail_sort_list(listint_t **list)
 				mover = mover->next;
 		}
 		end = mover;
-		while (mover->next != start)
+		while (mover->prev != start)
 		{
 			if (mover->n < mover->prev->n)
 				swap_node(list, mover->prev, mover);
