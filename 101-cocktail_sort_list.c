@@ -30,7 +30,6 @@ void cocktail_sort_list(listint_t **list)
 				mover = mover->next;
 		}
 		end = mover;
-        printf("End = %d\n", end->n);
 		while (mover->prev != start)
 		{
 			if (mover->n < mover->prev->n)
@@ -39,12 +38,9 @@ void cocktail_sort_list(listint_t **list)
 				mover = mover->prev;
 		}
         start = mover;
-        printf("Start = %d\n", start->n);
-        printf("Mover = %d\n", mover->n);
-        if (start == end || start->prev == end || start->next == end->next)
+        if (start == end || start->prev == end || start->next == end)
             not_sorted = 0;
 	}
-    printf("If this prints my list is messed up not my while loop\n");
 }
 
 /**
